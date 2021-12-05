@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/fight_club_iconst.dart';
+import 'package:flutter_fight_club/fight_club_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_fight_club/fight_club_colors.dart';
 
