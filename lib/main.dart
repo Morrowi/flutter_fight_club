@@ -129,9 +129,9 @@ class _MyHomePageState extends State<MyHomePage> {
         } else if(enemysLives == 0){
           centerText = 'You won';
         } else {
-          String tmpTextEmeny = enemyLoseLife ? 'You hit enemy’s ${attackingBodyPart!.name.toLowerCase()}.': 'Your attack was blocked.';
-          String tmpTextYour = yourLoseLife ? 'Enemy hit your ${whatEnemyAttacks.name.toLowerCase()}.': 'Enemy’s attack was blocked.';
-          centerText = '$tmpTextEmeny\n$tmpTextYour';
+          String first = enemyLoseLife ? 'You hit enemy’s ${attackingBodyPart!.name.toLowerCase()}.': 'Your attack was blocked.';
+          String second = yourLoseLife ? 'Enemy hit your ${whatEnemyAttacks.name.toLowerCase()}.': 'Enemy’s attack was blocked.';
+          centerText = '$first\n$second';
         }
 
         whatEnemyDefends = BodyPart.random();
