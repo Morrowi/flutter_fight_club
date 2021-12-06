@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int yoursLivss = maxLives;
   int enemysLives = maxLives;
 
-  String centerText ='';
+  String centerText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -60,19 +60,20 @@ class _MyHomePageState extends State<MyHomePage> {
               yousrLiveCount: yoursLivss,
               enemysLiveCount: enemysLives,
             ),
-            SizedBox( height: 30),
+            SizedBox(height: 30),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ColoredBox(
-                    color: FightClubColors.darkPuper,
-                    child: SizedBox( width: double.infinity,
+                  color: FightClubColors.darkPuper,
+                  child: SizedBox(
+                    width: double.infinity,
                     child: Center(child: Text(centerText)),
-                    ),
+                  ),
                 ),
               ),
             ),
-            SizedBox( height: 30),
+            SizedBox(height: 30),
             ControlsWidget(
               defendingBodyPart: defendingBodyPart,
               selectDefenderBodyPart: _selectDefenderBodyPart,
@@ -122,15 +123,19 @@ class _MyHomePageState extends State<MyHomePage> {
           yoursLivss -= 1;
         }
 
-        if(enemysLives == 0 && yoursLivss == 0){
+        if (enemysLives == 0 && yoursLivss == 0) {
           centerText = 'Draw';
-        } else if(yoursLivss == 0 ){
+        } else if (yoursLivss == 0) {
           centerText = 'You lost';
-        } else if(enemysLives == 0){
+        } else if (enemysLives == 0) {
           centerText = 'You won';
         } else {
-          String first = enemyLoseLife ? 'You hit enemy’s ${attackingBodyPart!.name.toLowerCase()}.': 'Your attack was blocked.';
-          String second = yourLoseLife ? 'Enemy hit your ${whatEnemyAttacks.name.toLowerCase()}.': 'Enemy’s attack was blocked.';
+          String first = enemyLoseLife
+              ? 'You hit enemy’s ${attackingBodyPart!.name.toLowerCase()}.'
+              : 'Your attack was blocked.';
+          String second = yourLoseLife
+              ? 'Enemy hit your ${whatEnemyAttacks.name.toLowerCase()}.'
+              : 'Enemy’s attack was blocked.';
           centerText = '$first\n$second';
         }
 
@@ -397,7 +402,8 @@ class LivesWidget extends StatelessWidget {
         children: List.generate(overallLiveCount, (index) {
           if (index < currentLiveCount) {
             return Padding(
-              padding:  EdgeInsets.only(bottom: index< overallLiveCount -1 ? 4:0),
+              padding:
+                  EdgeInsets.only(bottom: index < overallLiveCount - 1 ? 4 : 0),
               child: Image.asset(
                 FightClubIcons.heartFull,
                 width: 18,
@@ -406,7 +412,8 @@ class LivesWidget extends StatelessWidget {
             );
           } else {
             return Padding(
-              padding:  EdgeInsets.only(bottom: index< overallLiveCount -1 ? 4:0),
+              padding:
+                  EdgeInsets.only(bottom: index < overallLiveCount - 1 ? 4 : 0),
               child: Image.asset(
                 FightClubIcons.heartEmpty,
                 width: 18,
