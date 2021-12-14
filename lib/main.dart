@@ -227,7 +227,19 @@ class FightersInfo extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(child: ColoredBox(color: Colors.white)),
+              Expanded(
+                child: ColoredBox(
+                  color: Colors.white,
+                ),
+              ),
+              Expanded(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      gradient: new LinearGradient(colors: [Colors.white, FightClubColors.darkPuper])
+                  ),
+
+                ),
+              ),
               Expanded(
                 child: ColoredBox(
                   color: FightClubColors.darkPuper,
@@ -259,11 +271,20 @@ class FightersInfo extends StatelessWidget {
                   ),
                 ],
               ),
-              ColoredBox(
-                color: Colors.green,
-                child: SizedBox(
-                  height: 44,
-                  width: 44,
+              SizedBox(
+                height: 44,
+                width: 44,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: FightClubColors.blueButton,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'vs',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
                 ),
               ),
               Column(
@@ -464,10 +485,13 @@ class BodyPartButton extends StatelessWidget {
       onTap: () => bodyPartSetter(bodyPart),
       child: SizedBox(
         height: 40,
-        child: ColoredBox(
-          color: selected
-              ? FightClubColors.blueButton
-              : FightClubColors.greyButton,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: selected ? FightClubColors.blueButton : Colors.transparent,
+            border: !selected
+                ? Border.all(color: FightClubColors.darkGreyText, width: 2)
+                : null,
+          ),
           child: Center(
             child: Text(
               bodyPart.name.toUpperCase(),
